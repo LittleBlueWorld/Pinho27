@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pinho27 Enterprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #e6b800;
+        }
+
+        .message {
+            color: rgb(255, 5, 5);
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pinho27 Enterprise</title>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        /* Your form styling */
+    </style>
+</head>
+<body>
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required placeholder="Your email address">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your message"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="response-message" class="message"></div>
+    </div>
+
+    <script>
+        // Initialize EmailJS with your user ID
+        emailjs.init("service_kls0lqc", "template_1q7z5q9");
+
+        // Get the form element
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Send the email using EmailJS
+            emailjs.sendForm('service_kls0lqc', 'template_1q7z5q9', form)
+                .then(function(response) {
+                    document.getElementById('response-message').textContent = "Your message has been sent successfully!";
+                    form.reset();  // Clear the form
+                }, function(error) {
+                    document.getElementById('response-message').textContent = "Oops! Something went wrong.";
+                });
+        });
+    </script>
+</body>
+</html>

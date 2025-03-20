@@ -5,73 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinho27 Enterprise</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
             color: white;
             text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
         }
         header {
-            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
             color: white;
-            padding: 30px;
-            font-size: 30px;
-            font-weight: bold;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for the header */
         }
-        section {
+
+        
+        /* Logo Styling */
+        header .logo {
+            font-family: 'Montserrat', sans-serif; /* Bold, modern font */
+            font-size: 30px; /* Larger size for impact */
+            font-weight: bold; /* Bold text for prominence */
+            color: #ffffff; /* Yellow color for vibrance */
+            text-transform: uppercase; /* Uppercase letters for a clean look */
+            letter-spacing: 5px; /* Slight space between letters for elegance */
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+            transition: color 0.3s ease; /* Smooth transition for hover effect */
+        }
+        header .logo:hover {
+            color: #ff6600; /* Change color on hover */
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ffcc00;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            background: rgba(0, 0, 0, 0.6);
             padding: 50px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
         }
-        img {
-            width: 350px;
-            border-radius: 15px;
+
+        /* Enhanced Title with Gradient, Glow, and Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: bold;
+            background: linear-gradient(to right, #00c3ff, #4dabff);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 132, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 81, 255, 0.8);
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
             margin-top: 20px;
-            box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
         }
-        button {
+        .btn {
             padding: 15px 30px;
             font-size: 20px;
-            background: #ff6600;
-            color: white;
+            background: #00e1ff;
+            color: black;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: 0.3s;
+            margin-top: 20px;
         }
-        button:hover {
-            background: #cc5200;
+        .btn:hover {
+            background: #e6b800;
             transform: scale(1.1);
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        video.bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <header>Pinho27 Enterprise</header>
-    <section>
-        <div class="container">
-            <p>Welcome to Pinho27 Enterprise, where innovation meets excellence.</p>
-            <img src="pinho_wow.jpeg" alt="Company Logo">
-            <p>Our company is dedicated to providing the best services to our clients.</p>
-            <p>Our services include:</p>
-            <ul>
-                <li>Web Development</li>
-                <li>Mobile Development</li>
-                <li>Consulting</li>
-            </ul>
-            <p>Our team of experts is ready to help you with your project.</p>
-            <p>Contact us today to get started!</p>
-            <button onclick="goToPage()">About our CEO</button>
+    <header>
+        <div class="logo">
+            <h1>Pinho27 Enterprise</h1>
         </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Background Video -->
+    <video class="bg-video" autoplay muted loop>
+        <source src="code.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <section class="hero">
+        <h1>Pinho27 Enterprise</h1>
+        <p>Welcome to Pinho27 Enterprise, where innovation meets excellence. We provide high-end solutions for businesses worldwide.</p>
+        <button class="btn" onclick="goToPage()">Schedule a Call</button>
     </section>
+
     <script>
         function goToPage() {
             window.location.href = "about.html";
